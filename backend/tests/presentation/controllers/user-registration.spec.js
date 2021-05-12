@@ -1,5 +1,5 @@
 import { UserRegistrationController } from '../../../src/presentation/controllers/user-registration'
-import { badRequest, serverError } from '../../../src/presentation/http-protocol/http-response'
+import { badRequest, serverError, noContent } from '../../../src/presentation/http-protocol/http-response'
 const makeFakeRequest = () => {
   return {
     body:{
@@ -126,5 +126,11 @@ describe('User Registration Controller', () => {
     const request = makeFakeRequest()
     const response = await sut.handler(request)
     expect(response).toEqual(badRequest(new Error('Invalid password')))
+  })
+  test("ensure user registration returns noContent on succeeds", async ()=>{
+    const { sut } = makeSut()
+    const request = makeFakeRequest()
+    const response = await sut.handler(request)
+    expect(response).toEqual(noContent())
   })
 })
