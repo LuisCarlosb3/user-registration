@@ -7,7 +7,9 @@
     "dev": "sucrase-node src/index.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --no-cache",
+    "test:unit": "npm test -- --watch -c jest-unit.config.js",
+    "test:integration": "npm test -- --watch -c jest-integration.config.js"
   },
   "keywords": [
     "User",
@@ -17,11 +19,13 @@
   "author": "Luis Carlos Galvão",
   "license": "ISC",
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.1.0",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
+    "jest": "^26.6.3",
     "lint-staged": "^11.0.0",
     "sucrase": "^3.18.1"
   },
@@ -29,6 +33,6 @@
     "express": "^4.17.1"
   },
   "lint-staged": {
-      "*.js": "eslint 'src/**' --fix"
-    }
+    "*.js": "eslint 'src/**' --fix"
+  }
 }
