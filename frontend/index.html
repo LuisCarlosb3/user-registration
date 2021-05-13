@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.js" integrity="sha512-CrNI25BFwyQ47q3MiZbfATg0ZoG6zuNh2ANn/WjyqvN4ShWfwPeoCOi9pjmX4DoNioMQ5gPcphKKF+oVz3UjRw==" crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
   
   <link rel="stylesheet" href="styles.css">
   <link rel="sc" href="styles.css">
@@ -38,7 +40,10 @@
         <div class="form-row">
             <label>
                 <span>Confirmação de senha</span>
-                <input type="password" name="confirm_password" required>
+                <div class="input-group">
+                    <input type="password" name="confirm_password" required>
+                    <div class="error-message" id="password_confirm_error">Senhas não coincidem</div>
+                </div>
             </label>
         </div>
         <div class="form-row">
@@ -50,8 +55,10 @@
         <div class="form-row-double">
             <label>
                 <span>CEP</span>
-                <input type="number" name="cep" required>
-                <!-- <span>CEP Inválido</span> -->
+                <label class="input-group">
+                    <input type="number" name="cep" required>
+                    <div class="error-message" id="cep_error">CEP é inválido</div>
+                </label>
             </label>
             <label>
               <span>Estado</span>
