@@ -52,8 +52,8 @@ const makeFakeEncrypt = () =>{
 }
 const makeFakeReigstrationValidation = () =>{
   class RegistrationValidation {
-    validate(payload) {
-      return null
+    async validate(payload) {
+      return await Promise.resolve(null)
     }
   }
   return new RegistrationValidation()
@@ -132,7 +132,7 @@ describe('User Registration Controller', () => {
   })
   test("ensure user registration returns bad request if userRegistrationValidation returns an error", async ()=>{
     const { sut, userRegistrationValidation } = makeSut()
-    jest.spyOn(userRegistrationValidation, 'validate').mockReturnValueOnce(new Error('Invalid password'))
+    jest.spyOn(userRegistrationValidation, 'validate').mockResolvedValueOnce(new Error('Invalid password'))
     const request = makeFakeRequest()
     const response = await sut.handler(request)
     expect(response).toEqual(badRequest(new Error('Invalid password')))

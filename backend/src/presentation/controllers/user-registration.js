@@ -11,7 +11,7 @@ export class UserRegistrationController {
   async handler (httpRequest) {
     try{ 
       const { body } = httpRequest
-      const validationResponse = this.userRegistrationValidation.validate(body)
+      const validationResponse = await this.userRegistrationValidation.validate(body)
       if(validationResponse){
         return badRequest(validationResponse)
       }
