@@ -4,11 +4,11 @@ exports.up = function(knex) {
       table.uuid('id').primary().defaultTo(knex.raw('uuid_generate_v4()'))
       table.string('cep').notNullable();
       table.string('street').notNullable();
-      table.string('complement').notNullable();
+      table.string('complement');
       table.string('district').notNullable();
       table.string('city').notNullable();
       table.string('state').notNullable();
-      table.string('number').notNullable();
+      table.string('number');
       table.uuid('user_id').notNullable().index().references('id').inTable('users')
       table.timestamp('created_at').defaultTo(knex.fn.now())
       table.timestamp('updated_at').defaultTo(knex.fn.now())
