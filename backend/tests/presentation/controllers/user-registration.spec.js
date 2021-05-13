@@ -42,6 +42,14 @@ const makeFakeEmailSender = () =>{
   }
   return new SendNewUserEmail()
 }
+const makeFakeEncrypt = () =>{
+  class FakeEncrypt {
+    async crypt(password){
+      return 'any_hash'
+    }
+  }
+  return new FakeEncrypt()
+}
 const makeFakeReigstrationValidation = () =>{
   class RegistrationValidation {
     validate(payload) {
@@ -55,13 +63,15 @@ const makeSut = () =>{
   const loadUserByEmail = makeFakeLoadUserByEmail()
   const createUser = makeFakeCreateUser()
   const sendUserEmail = makeFakeEmailSender()
-  const sut = new UserRegistrationController(userRegistrationValidation, loadUserByEmail, createUser, sendUserEmail)
+  const fakeEncrypt = makeFakeEncrypt()
+  const sut = new UserRegistrationController(userRegistrationValidation, loadUserByEmail, createUser, sendUserEmail, fakeEncrypt)
   return {
     sut,
     loadUserByEmail,
     createUser,
     sendUserEmail,
-    userRegistrationValidation
+    userRegistrationValidation,
+    fakeEncrypt
   }
 }
 
@@ -132,5 +142,12 @@ describe('User Registration Controller', () => {
     const request = makeFakeRequest()
     const response = await sut.handler(request)
     expect(response).toEqual(noContent())
+  })
+  test("ensure user registration calls encrypt with request password", async ()=>{
+    const { sut, fakeEncrypt } = makeSut()
+    const fakeEncryptSpy = jest.spyOn(fakeEncrypt, 'crypt')
+    const request = makeFakeRequest()
+    await sut.handler(request)
+    expect(fakeEncryptSpy).toHaveBeenCalledWith('any_password')
   })
 })

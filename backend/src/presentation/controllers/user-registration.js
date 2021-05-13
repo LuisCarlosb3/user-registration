@@ -1,11 +1,12 @@
 import { badRequest, serverError, noContent } from "../http-protocol/http-response"
 
 export class UserRegistrationController {
-  constructor(userRegistrationValidation, loadUserByEmail, createUser, sendNewUserEmail){
+  constructor(userRegistrationValidation, loadUserByEmail, createUser, sendNewUserEmail, encrypt){
     this.userRegistrationValidation = userRegistrationValidation
     this.loadUserByEmail = loadUserByEmail
     this.createUser = createUser
     this.sendNewUserEmail = sendNewUserEmail
+    this.encrypt = encrypt
   }
   async handler (httpRequest) {
     try{ 
@@ -18,7 +19,9 @@ export class UserRegistrationController {
       if(emailExists){
         return badRequest('Email já existe')
       }
-      delete body.password_confirmation
+      const cryptPassword = await this.encrypt.crypt(body.password)
+      body.password = cryptPassword
+      delete body.confirm_password
       const userCreated = await this.createUser.register(body)
       if(userCreated){
         await this.sendNewUserEmail.send(body.email)
