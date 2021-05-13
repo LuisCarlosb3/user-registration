@@ -11,7 +11,7 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './src/infra/db/helper/migrations'
+      directory: '../../infra/db/helper/migrations'
     }
   },
   test: {
@@ -27,7 +27,7 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './src/infra/db/helper/migrations'
+      directory: '../../infra/db/helper/migrations'
     }
   },
 
@@ -44,7 +44,7 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './src/infra/db/helper/migrations'
+      directory: '../../infra/db/helper/migrations'
     }
   }
 
