@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.js" integrity="sha512-CrNI25BFwyQ47q3MiZbfATg0ZoG6zuNh2ANn/WjyqvN4ShWfwPeoCOi9pjmX4DoNioMQ5gPcphKKF+oVz3UjRw==" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="sc" href="styles.css">
+  <title>Registro de usuário</title>
+</head>
+<body>
+  <div class="main-content">
+    <form class="form-basic" id="register-form">
+        <div class="form-title-row">
+            <h1>Registro de usuário</h1>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Nome</span>
+                <input type="text" name="name" required>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>E-mail</span>
+                <input type="email" name="email" required>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Senha</span>
+                <input type="password" name="password" required>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Confirmação de senha</span>
+                <input type="password" name="confirm_password" required>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>CPF</span>
+                <input type="text" name="cpf" required>
+            </label>
+        </div>
+        <div class="form-row-double">
+            <label>
+                <span>CEP</span>
+                <input type="number" name="cep" required>
+                <!-- <span>CEP Inválido</span> -->
+            </label>
+            <label>
+              <span>Estado</span>
+              <input type="text" name="state" required>
+          </label>
+        </div>
+        <div class="form-row-double">
+            <label>
+                <span>Cidade</span>
+                <input type="text" name="city" required>
+            </label>
+            <label>
+              <span>Bairro</span>
+              <input type="text" name="district" required>
+            </label>
+        </div>
+        <div class="form-row-double">
+            <label>
+              <span>Rua</span>
+              <input type="text" name="street" required>
+            </label>
+            <label>
+              <span>Número</span>
+              <input type="text" name="number">
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            <span>Complemento</span>
+            <input type="text" name="complemet">
+        </label>
+        </div>
+        <div class="form-row-button">
+            <button type="submit" id="send-register">Enviar</button>
+        </div>
+    </form>
+  </div>
+</body>
+<script type="text/javascript" src="index.js"></script>
+
+</html>
