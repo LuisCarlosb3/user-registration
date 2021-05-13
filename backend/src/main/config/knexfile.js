@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+import env from './index'
 module.exports = {
   development: {
     client: 'postgresql',
@@ -34,9 +34,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'user-register',
-      user:     'postgres',
-      password: 'root'
+      database: env.db_name,
+      user:     env.db_user,
+      password: env.db_password
     },
     pool: {
       min: 2,
