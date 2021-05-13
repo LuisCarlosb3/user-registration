@@ -24,7 +24,7 @@ export class UserRegistrationController {
       delete body.confirm_password
       const userCreated = await this.createUser.register(body)
       if(userCreated){
-        await this.sendNewUserEmail.send(body.email)
+        await this.sendNewUserEmail.sendNewUserMessage(body.email)
       }
       return noContent()
     }catch(error){

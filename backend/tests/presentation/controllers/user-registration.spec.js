@@ -36,7 +36,7 @@ const makeFakeCreateUser = () =>{
 }
 const makeFakeEmailSender = () =>{
   class SendNewUserEmail {
-    async send(email){
+    async sendNewUserMessage(email){
       return await Promise.resolve(true)
     }
   }
@@ -111,14 +111,14 @@ describe('User Registration Controller', () => {
   test("ensure user registration calls sendNewEmailRegister with new user email", async ()=>{
     const { sut, sendUserEmail } = makeSut()
     const request = makeFakeRequest()
-    const sendEmailSpy = jest.spyOn(sendUserEmail, 'send')
+    const sendEmailSpy = jest.spyOn(sendUserEmail, 'sendNewUserMessage')
     await sut.handler(request)
     expect(sendEmailSpy).toHaveBeenCalledWith(request.body.email)
   })
   test("ensure user registration calls sendNewEmailRegister with new user email only if register returns true", async ()=>{
     const { sut, sendUserEmail,createUser } = makeSut()
     const request = makeFakeRequest()
-    const sendEmailSpy = jest.spyOn(sendUserEmail, 'send')
+    const sendEmailSpy = jest.spyOn(sendUserEmail, 'sendNewUserMessage')
     jest.spyOn(createUser, 'register').mockResolvedValueOnce(false)
     await sut.handler(request)
     expect(sendEmailSpy).not.toHaveBeenCalled()
