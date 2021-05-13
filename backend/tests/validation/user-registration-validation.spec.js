@@ -29,6 +29,6 @@ describe('User Registration Validation', ()=>{
     const userInfo =  makeFakeUserInfo()
     delete userInfo.name
     const validationResponse = await sut.validate(userInfo)
-    expect(validationResponse).toEqual(["Nome é obrigatório"])
+    expect(validationResponse).toEqual(new Error("Nome é obrigatório"))
   })
 })

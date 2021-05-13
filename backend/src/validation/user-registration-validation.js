@@ -21,7 +21,7 @@ export class UserRegistrationValidation {
     }else{
       return await userRegistrationSchema.validate(userInfo).catch(err =>{
         if(err){
-          return err.errors
+          return new Error(err.errors)
         }
         return null
       })
