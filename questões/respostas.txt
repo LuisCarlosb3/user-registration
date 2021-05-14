@@ -1,0 +1,14 @@
+1. A solução deve ser disponibilizada em Cloud ou On-premise? 
+No caso da aplicação desenvolvida, é preferível ter a implantação realizada em plataforma Cloud, essa definição é baseada na possibilidade de utilizar serviços como banco de dados e envio de e-mails sem grandes complicações, tendo também o baixo custo operacional, devido ser apenas uma funcionalidade não precisa de máquinas de grande custo para manter a aplicação ativa, podendo até mesmo realizar a disponibilidade em instâncias serverless.
+
+2. Considerando a participação de 4 pessoas técnicas para o desenvolvimento dessa solução, responda qual ferramenta acredita ser apropriada para o controle de tarefas da equipe, a ferramenta é ágil? 
+Em caso de uma equipe geograficamente centralizada, é possível gerenciar o desenvolvimento com um quadro Kanban simples, para equipes remotas, é possível utilizar aplicações como Trello, Notion ou quadros de atividades presentes nos repositórios online. Em ambas as situações seria utilizado ferramentas que permite um melhor controle da divisão e andamento das atividades, de maneira que em um modelo de desenvolvimento ágil, uma sprint seria necessária para  o desenvolvimento da aplicação
+
+3. Você se sente capaz de liderar esta equipe? Por quê? 
+Sim, além de desenvolver soluções, um engenheiro de software deve ser capaz de entender o comportamento da equipe a qual está alocado a fim de obter uma boa evolução das atividades, mesmo que de maneira temporária, gerenciar uma equipe seria uma experiência muito boa para evoluir como profissional.
+
+4. Se pudesse sugerir uma melhoria, mudança ou oportunidade. O que seria? 
+Levando em conta o problema apresentado, seria válido abordar no desafio situações que demandem de processos de comunicação em tempo real entre aplicações e/ou clientes.
+
+5. Acha válido esse desafio para o processo que está participando?
+Sim, mesmo que apresente uma situação simples, o problema permite exercitar conhecimentos necessários para o desenvolvimento de aplicações comuns do cotidiano, que utilizam de serviços externos como APIs de terceiros ou serviços de e-mails, bem como visualizar habilidades relacionadas à técnicas de análise e documentação
